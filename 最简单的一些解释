@@ -1,0 +1,5 @@
+public   代表全局的定义
+static   表示静态的
+void     没有返回值
+main     是Java中的入口方法，这个main的名称是不可能改变的
+args     是一个参数，可以随意定义
