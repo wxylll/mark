@@ -1,0 +1,41 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+ul {
+width: 400px;
+margin: 0 auto;
+list-style: none;
+}
+li {
+float:left;
+width: 100%;
+padding: 4px 0;
+}
+label {
+float: left;
+width: 80px;
+}
+input {
+float: left;
+}
+textarea {
+width: 240px;
+}
+</style>
+<form method="post" action="?do=ok">
+  <ul>
+    <li>
+      <label>用户名</label>
+      <input name="yhm" type="text">
+    </li>
+    <li>
+      <label>密码</label>
+      <input name="dh" type="text">
+    </li>
+    <li>
+      <textarea name="nr" cols="45" rows="5"></textarea>
+    </li>
+    <li>
+      <input name="提交" type="submit" value="提交">
+    </li>
+  </ul>
+</form>
