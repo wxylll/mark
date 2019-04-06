@@ -1,0 +1,15 @@
+<!doctype html><!--！是声明doctype文本类型为html5的页面注释用户看不到，页面不会去解析，单标签-->
+<!--标签：一对尖括号里面包裹的关键字-->
+<html lang="en"><!--网页文档的开始，存放网页里的所有内容，是个双标签-->
+ <head><!--是网页的头部，开始-->
+  <meta charset="UTF-8"><!--meta是告诉浏览器当前网页的基本信息，charset是网页字符集，UTF-8是国际编码(万国码)-->
+  <meta name="Generator" content="EditPlus?"><!--name是名称，content后面是我们要写的内容-->
+  <meta name="Author" content="">
+  <meta name="Keywords" content=""><!--keywords是网站关键字-->
+  <meta name="Description" content=""><!--description是网站的描述信息，content后面加内容-->
+  <title>Document</title><!--title后面是网页的标题-->
+ </head>
+ <body><!--是网页的身体，主体部分-->
+  
+ </body>
+</html><!--/是闭合符，是双标签-->
