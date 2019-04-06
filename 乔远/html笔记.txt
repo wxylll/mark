@@ -1,0 +1,51 @@
+Html 设计登录界面笔记
+
+1创建文件夹》创建记事本》改格式html
+2用记事本打开
+开始
+
+登陆界面代码
+<html  >
+<head>
+<title>网站后台管理系统</title>
+
+</head>
+<body bgcolor="003399" text="white">
+//bgcolor是整个网页背景的颜色
+//text是所有文字的颜色
+//td中改不了颜色body中可以
+
+
+<div style="display:block;margin:50% auto;width:0%;jjbackground:#2894FF;">
+//定义整个表格的颜色，和在整个页面的位置
+<form>
+
+<table width="600" height="400" bgcolor="#2894FF" style="border-color" border="2">
+
+
+<tr align=center><td colspan="2" ><font size="5">网站后台管理系统     </td></tr></font>
+//colspan=”2”合并两行为一行
+//align=center内容居中
+
+<tr align=center>
+<td colspan="2" >用户名:<input type="text" name="username" id="username"></td>
+</tr>
+//定义空格
+
+<tr align=center>
+<td colspan="2">密 码:<input type="password" name="password" id="password"></td>
+</tr>
+
+<tr align=center>
+<td colspan="2">验证码:<input type="text" name="yanzheng">
+</td></tr>
+
+<tr align=center><td colspan="2"><input type="button" value="登 录" onclick="r();"/>     <input type="reset" value="重 置"/></td></tr>
+//button定义两个按钮
+//onclick=r()当鼠标点击时调用这个函数
+</table>
+</form>
+</div>
+
+</body>
+</html>
