@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>HTML初学习</title>
+</head>
+<body bgcolor="pink">
+	<font color="red" size="6">网站后台管理系统。</font><br>
+<image src="iloveu.jpg" width="300" height="200"><!--加载图片-->
+<!--embed src="音视频路径" width="50" heigth="50" --><!--加音频视频-->
+<a href="http://baidu.com"></a><!--链接标签-->
+<form><!--表单标签-->
+	用户名：<input type="text"><br>
+	密&nbsp;&nbsp;&nbsp;码：<input type="password"><br>
+	可选按钮：
+	<input type="checkbox"><br>
+	单选按钮：
+	<input type="radio" name="a"><!--单选按钮-->
+	<input type="radio" name="a">
+	<input type="radio" name="a"><br>
+	<input type="file"><!--文件选择器--><br>
+	<input type="submit" value="登录"><br>
+	<input type="reset" name="重写"><br>
+	<select>
+		<option>足球</option>
+		<option>篮球</option>
+		<option>乒乓球</option>
+	</select><br>
+	<textarea rows="20" cols="30"></textarea><br>
+</form>
+<ul start="5"><!--无序，有序用ol-->
+	<li>AAAAAAA</li>
+	<li>BBBBBBB</li>
+	<li>CCCCCCC</li>
+</ul><br><!--ol type="a"|"i"-->
+<table border="2" width="80%" heigth="100"><!--绘制表格-->
+	<tr>
+		<td colspan="3">aaaaaa</td><!--合并单元格-->
+		<!--<td>bbbbbb</td>-->
+		<td rowspan="2">cccccc</td>
+	</tr>
+	<tr>
+		<td>dddddd</td>
+		<td>eeeeee</td>
+		<td>fffffff</td>
+	</tr>
+</table>
+</body>
+</html>
