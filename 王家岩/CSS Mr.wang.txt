@@ -1,0 +1,41 @@
+
+/*CSS字体总结*/
+
+字体大小 
+	{font-size: x-large;(特大)   		xx-small;(极小) 一般中文用不到，只要用数值就可以，单位：PX、PD
+
+	}
+字体样式
+	{font-style: oblique;(偏斜体) 		italic;(斜体) 
+		   normal;(正常)
+	}
+字体行高 	
+	{line-height: normal;(正常) 单位：PX、PD、EM}
+
+字体粗细 
+	{font-weight: bold;(粗体) 		lighter;(细体) 
+		      normal;(正常)
+	}
+
+字体变体 
+	{font-variant: small-caps;(小型大写字母)   normal;(正常)
+	
+	}
+
+字体大小写
+	{text-transform: capitalize;(首字母大写)    uppercase;(大写) 
+		          lowercase;(小写)             none;(无)
+	}
+
+字体修饰 
+	{text-decoration: underline;(下划线) 	overline;(上划线) 
+		           line-through;(删除线)    blink;(闪烁)
+	}
+
+
+
+
+
+
+
+
