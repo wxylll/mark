@@ -1,0 +1,111 @@
+/*背景图片设置*/
+body{
+	background-image: url(../images/background.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-size: 100%;
+}
+*{
+	margin :0;
+	padding:0;
+
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style-type: none;
+}
+input,img{
+	border: none;
+}
+/*头部开始*/
+#header h1{
+	position: absolute;
+	font-size: 40px;
+	font-style:italic;
+	color:#FFFFFF;
+	margin-left: 41%;
+	margin-top: 15%;
+
+}
+/*头部结束/
+/*用户名区域开始*/
+#input .area  .name p{
+	position: absolute;
+	margin-left: 42%;
+	margin-top: 20%;
+	color:#FFFFFF;
+	font-size: 25px;
+	font-weight: bold;
+}
+#input .area .name input{
+	position: absolute;
+	width: 200px;
+	height: 30px;
+	margin-left: 47%;
+	margin-top: 20%;
+	font-size: 20px;
+}
+
+/*用户名区域结束*/
+
+/*密码区域开始*/
+#input .area .password  p{
+	position: absolute;
+	margin-left: 42%;
+	margin-top: 22%;
+	color:#FFFFFF;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#input .area .password input{
+	position: absolute;
+	width: 200px;
+	height: 30px;
+	margin-left: 47%;
+	margin-top: 22%;
+	font-size: 20px;
+}
+/*密码区域结束*/
+
+/*验证码开始*/
+#input .area .code p{
+	position: absolute;
+	margin-left: 42%;
+	margin-top: 24%;
+	color:#FFFFFF;
+	font-size: 25px;
+	font-weight: bold;
+}
+#input .area .code input{
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	margin-left: 47%;
+	margin-top: 24%;
+	font-size: 20px;
+}
+/*验证码结束*/
+
+/*登陆按钮开始*/
+#input .area .submitBtn input{
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	margin-left: 42%;
+	margin-top: 27%;
+	font-size: 20px;
+}
+/*登陆按钮结束*/
+/*重置按钮开始*/
+#input .area .resetBtn input{
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	margin-left:49%;
+	margin-top: 27%;
+	font-size: 20px;
+}
+/*重置按钮结束*/
