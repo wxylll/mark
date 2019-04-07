@@ -1,0 +1,24 @@
+java语言是跨平台 jvm不是跨平台的
+JRE(Java Runtime Environment)java的运行环境 包括jvm+java的核心类库
+JDK(Java Development Kit)java的开发工具,包括jre+开发工具
+环境变量path和classpath的作用是什么  path是配置Windows可执行文件的搜索路径,即扩展名为.exe的程序文件所在的目录
+用于指定DOS窗口命令的路径
+Classpath是配置class文件所在的目录 用于指定类搜索路径 JVM就是通过它来寻找该类的class类文件的 变量有什么用为什么要定义变量 什么时候用 
+变量的作用:用来存储数据
+为什么要定义变量 用来不断的存放同一类型的常量 并可以重复使用
+&和&&的区别
+&&会出现短路,如果可以通过第一个表达式判出整个表达式的结果,则不继续后面表达式的运算
+只能操作boolean类型数据
+&不会出现短路,将整个表达式都运算 既可以操作boolean数据还可以操作数
+java语言是跨平台 jvm不是跨平台的
+JRE(Java Runtime Environment)java的运行环境 包括jvm+java的核心类库
+JDK(Java Development Kit)java的开发工具,包括jre+开发工具
+环境变量path和classpath的作用是什么  path是配置Windows可执行文件的搜索路径,即扩展名为.exe的程序文件所在的目录
+用于指定DOS窗口命令的路径
+Classpath是配置class文件所在的目录 用于指定类搜索路径 JVM就是通过它来寻找该类的class类文件的 变量有什么用为什么要定义变量 什么时候用 
+变量的作用:用来存储数据
+为什么要定义变量 用来不断的存放同一类型的常量 并可以重复使用
+&和&&的区别
+&&会出现短路,如果可以通过第一个表达式判出整个表达式的结果,则不继续后面表达式的运算
+只能操作boolean类型数据
+&不会出现短路,将整个表达式都运算 既可以操作boolean数据还可以操作数
