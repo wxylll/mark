@@ -1,0 +1,926 @@
+
+package hello.world;
+//最多只能够有一个pubilc 的类，其他的类个数不限，就对应多少个class文件
+//class类后面的的类名字更你的文件名字是一致的，注意这一点
+//{}内的内容就叫做类体
+public class HelloWorld {   
+    static int ii=1000;                         //在类体里面的叫成员变量，且必须在前面加上static
+    
+    public static void main(String[] args) {    //小括号里面的叫方法
+        // TODO code application logic here     //小括号后面的{}叫方法体
+        int i=100;                              //在方法体内的叫局部变量  出了大括号就没人认识它的
+        long a=88888888L;                       //默认是int型，后面必须加L
+        double b=123.865;                       //double默认是0.0
+        long   b2=300000001L;
+        float j=12.3f;                          //默认是double类型，加f，Java是没用无符号的整数类型的，byte shor int long
+        byte b1=(byte)(i+b);
+        char  c1 ='\n';                         //注意的是在Java的char字符型数据类型中，是unicode的编码 每个字符占用连个字节，且\\u可以转译为其他含义字符
+        String s ="Hello";
+        System.out.println("Hello World!");
+        System.out.println(a);
+        System.out.println("b2="+b2);
+        System.out.println("b1="+b1);          //这是内部内存直接砍掉之后的剩下多少就是多少。啃定是不正确的
+        
+        System.out.println("i="+(i+b)+"第三个就是");           //注意这个第一个+是语句执行的加法,但是如果就是加上一个括号就是加法运算
+        System.out.println(ii);
+    }
+}
+class T{
+    public static void TT(String [] args)  {
+        int iii=109;
+        System.out.println(iii);
+    }
+}
+学习笔记：
+1、print与println是不一样的，print是不换行的，而printin是打印后自动换行的
+2、| & 和 || &&没有区，只是运算过程不一样
+3、+  还可以是字符串连接符 string“Hello”+“Word。
+          规则“System。Output""c="+c"   自动转换位字符串打印出来
+4、Java在循环语句中在Switch中只会是识别int类型的参数，其他一律不执行
+5、Java里面的方法其实就是其它语言的函数，习惯叫方法，可以像其他函数一样被调用
+6、有且只有一个public static void main(String[] args）
+7、java函数床底函数的过程规则是：参数类型一致，反回来类型也一致
+       pubilc static void mian (string[] args)  {
+       a();  //表示调用方法a（）；
+} 
+            pubilc static void a() {    }
+             pubilc static void b() {
+                 return；  //一旦就是用了return，二话不说直接停止这个方法后面的语句，直接返回主函数 
+}
+             pubilc static void m3(int i,int j)
+             pubilc static int  m4 (int i,int j)//返回的值储存在一个临时开开辟的空间内存里面，你可以用可以不用，它会自动重收内存
+8、递归函数的应用 
+           递归含义：在函数里面调用函数本身，在方法里面调用自己的方法，所以牛只要给他一个终止的命令指令在前面即可
+                                 if（n==1）
+                                        return 1;
+                                 else  return meth(n-1)  ;      //不要满足推出终止指令循环执行，一旦到了终止既终止
+面向对象的编程语言
+面向过程：我要去新疆，我开车，我启动汽车，我踩油门，我过山西，我过湖南，我到了新疆
+面对对象：我要去新疆，车你去新疆吧，怎么去？我不管，我到了新疆
+9、合适的方法要出现在合适的类里面，只要给出合适的 接口 就行
+10、在你编程你的时候就不要一步一步的来了，更注重是对象的关系
+11、类 是抽象出来的并没有准确的定义，对象 是类里面的具体的特征关系      瓶子 是一个类，某个瓶子就是一个对象，一个类可以对应多个类
+12、关系和关系 之间是不同的
+              关联关系，
+              继承关系（继承树）（XX是一种XX，如：学生是一个人，篮球运动员是运动员），
+              聚合关系（聚集（一般） 和  组合（严格），（整体和部分）
+              实现关系  （就是    实现 的方法，虽然是 继承关系，但各自有自己的子类去实现，子实现方法是不一样的
+13、面向对象的思维
+              第一步：有什么类有几个对象
+              第二步：这些类和对象具有什么属性和方法
+              第三步：具有什么的具体关系
+14、Java的语法
+              //用class定义一个类
+              class Person{
+                   //成员变量的定义
+                   private int id ;
+                   private int age  =  20;              
+                   //方法的定义 
+                   pubilc int getAge（）{ return age ；}
+                   pubilc void setAge（int i）{ age = i ； }
+              }
+15、成员变量可以不用初始化，Java可以直接调用，但是局部变量没有初始化是不能运行的!!!
+16、基本类型在内存中占一块，而引用类型在内存中占用两块
+        String s；//申明了一个类的变量名称，但是没有具体的对象
+        s = new String （“Hello  World”）；//到这里才是真正定义了一个类的具体对象属性  
+17、构造方法，名字和类名字一样且没有没有返回值、 也灭有返回值类型 
+       pubilc class Person{
+        int id; 
+        int age;
+        //构造函数，如果就是你不在后面添加构造方法 系统将自动为你添加一个空的构造方法 Person （）{   }
+        Person  （int n，int i）{
+ +
+            id=n；
+            age=i；     
+        }       
+   }    //构造方法和new一起使用 建立一个对象
+18、方法重载：就是预留一个接口可提供调用时候时可以使用不同的方法名称，而函数内用基本一致，避免复杂重新写程序
+                     void max(int a,int b)       {System.out.printiln(a>b?a:b}
+       前面用的构造方法也可以构成重载方法！   符合API接口的人性化
+19、package hello.world;
+class Point {
+    private double x;
+    private double y;
+    Point(double x1, double y1) { 
+     x = x1; 
+     y = y1;
+    }
+    public double getX() { return x; }
+    public double getY() { return y; }
+    public void setX(double i) { x = i; }
+    public void setY(double i) { y = i; }
+}
+class Circle {
+    private Point o;
+    private double radius;
+    Circle(Point p, double r) {
+     o = p; 
+     radius = r;
+    }
+    Circle(double r) {
+        o = new Point(0.0, 0.0);
+        radius = r;
+    }
+    
+    boolean contains(Point p) {
+     double x = p.getX() - o.getX();
+     double y = p.getY() - o.getY();
+     if(x*x + y*y > radius * radius) return false;
+     else return true;
+    }
+    
+    
+    public void setO(double x, double y) {
+        o.setX(x); 
+        o.setY(y);
+    }
+    public Point getO() { return o; }
+    public double getRadius() { return radius;}
+    public void setRadius(double r) { radius = r;}
+    public double area() { 
+        return 3.14 * radius * radius;
+    }
+}
+public class HelloWorld {
+    public static void main(String args[]) {
+        Circle c1 = new Circle(new Point(1.0,2.0), 2.0);
+        Circle c2 = new Circle(5.0);
+        System.out.println("c1:("+c1.getO().getX()+","
+            +c1.getO().getY()+"),"+c1.getRadius());
+        System.out.println("c2:("+c2.getO().getX()
+            +","+c2.getO().getY()+"),"+c2.getRadius());
+        System.out.println("c1 area = "+c1.area());
+        System.out.println("c1 area = "+c2.area());
+        c1.setO(5,6);
+        c2.setRadius(9.0);
+        System.out.println("c1:("+c1.getO().getX()+","
+            +c1.getO().getY()+"),"+c1.getRadius());
+        System.out.println("c2:("+c2.getO().getX()+","
+            +c2.getO().getY()+"),"+c2.getRadius());
+        System.out.println("c1 area = "+c1.area());
+        System.out.println("c1 area = "+c2.area());
+        
+        Point p1 = new Point(5.2, 6.3);
+        System.out.println(c1.contains(p1));
+        System.out.println(c1.contains(new Point(10.0,9.0)));
+        
+    }
+}
+以上代码是对从开始到学完new关键字的总结，必须手打一边带代码，真正理解堆和栈内存的分析，掌握内存就掌握一切，以及new在各个语法的可应用型
+
+20、以下是关键字this  指向自身的对象引用，看内存指向自己，同时可以区分参数和实参的关系（就近申明原则）
+21、static 关键字   static成员变量只有一份，且在一个类里面共享一个static变量（存放在数据区data seg），区别于非静态成员变量他是共享的，int是每一个对象都有的
+22、static直接使用是 类名.(static), 而不是 对象名.(int)
+23、super关键字： class ChildClass extends FatherClass {}   在childclass对象cc里面那还有一个父类对象
+24、supper与this相似，指向父类对象this value   以及 super.value  与this用法相同
+25、final关键字：final的变量值不能重写不能改变不能继承，与super重写作用相反  final int i =9 ；只可以读不可以写
+26、package（机制） 和 import语句 写在第一条语句 包的问题  提供多类重命名的空间   package com.bjsxt.java  -->又左往右包
+27、public 权限修饰符  还有 private default  protected
+28、继承：extends 子类自动就有了基类，就是共用了的一个类，狗是动物猫也是动物，Java只支持一种继承就是只有一个类，c++支持多个类
+29、继承中有权限  可以有所有权，当时没有使用权
+30、子类的狗找方法必须调用父类的狗找方法，就是在后面加上super（int x）   或者使用 this（int x） 如果调用了super必须些写在钩爪方法的第一行
+31、如果就是没有调用父类的钩爪方法那么就自动调用使用空参数父类那条，在没有空参数的语句，那么就是编译出错
+package hello.world;
+class Person{
+    private String name;
+    private int years;
+    private double money;
+    Person(String name,int years,double money){
+        this.name = name;
+        this.years = years;
+        this.money = money;
+        System.out.println("姓名：" + name + " 年龄： " + years + "  工资： " + money);
+    } 
+}
+class Teacher extends Person{   
+    String profession;
+    public Teacher(String profession) {
+        super("Caden",25,2546.3);
+        this.profession = profession;
+        System.out.println("担任职位：" + profession);
+    }
+    public void infoTeacher(){
+    }
+}
+public class HelloWorld {
+    public static void main(String args[]) {
+        Teacher Caden = new Teacher("财务主任");
+    }
+}
+运行结果：
+姓名：Caden 年龄： 25  工资： 2546.3
+担任职位：财务主任
+成功构建 (总时间: 0 秒)
+32、重写：从父类继承下来的方法不满意，重新写一遍，狗在跑你却说动物在跑
+33、Object类是Java的老祖宗，不用写明就可调用了
+34、 to String方法 可以根据需要重写to String 方法
+ Dog d = new Dog();
+        System.out.print(d.toString());
+35、equals方法   直接比较只能比较地址，而使用equals可以直接比较性质
+class Dog{
+    int name;
+    int color;
+    Dog(int name,int color ) {
+    this.name = name;
+    this.color = color;
+    }
+/* 这个是类包里面的对toString的方法的修改 
+    public String toString(){ 
+    return "my name is Caden ";
+   }*/
+ /*这里是对eqals类包的修改，因为你不满意可所以我们要修改
+    public boolean equals(Object obj){
+        if(obj == null){
+            return false;
+        }
+        else{
+            if(obj instanceof Dog){
+            Dog d =(Dog)obj;
+            if(d.color == this.color && d.name == this.name)   return true;               
+            } 
+        }
+        return false;
+    }*/
+}
+public class HelloWorld{
+ public static void main(String[] args) {
+ Dog d1 = new Dog(1,3);
+        Dog d2 = new Dog(1,3);
+        System.out.println(d1 == d2);
+        System.out.println(d1.equals(d2));
+        }
+}
+36、对象转型（casting）向上转型up   向下转型dowm
+37、动态绑定（多态），在执行期间根据所需的实际类型进行调用相应的啊方法。 
+abstract class Animal {
+  private String name;
+  Animal(String name) {this.name = name;}
+  public void enjoy(){
+    System.out.println("叫声......");
+  }
+  //public abstract void enjoy();
+}
+ class Cat extends Animal {
+  private String eyesColor;
+  Cat(String n,String c) {super(n); eyesColor = c;} 
+  public void enjoy() {
+    System.out.println("猫叫声......");
+  } 
+  //public abstract void enjoy();
+}
+class Dog extends Animal {
+  private String furColor;
+  Dog(String n,String c) {super(n); furColor = c;}
+ 
+  public void enjoy() {
+    System.out.println("狗叫声......");
+  }
+}
+class Bird extends Animal {
+  Bird() {
+    super("bird");
+  }
+  public void enjoy() {
+    System.out.println("鸟叫声......");
+  }
+}
+class Lady {
+    private String name;
+    private Animal pet;
+    Lady(String name,Animal pet) {
+        this.name = name; this.pet = pet;
+    }
+    public void myPetEnjoy(){pet.enjoy();}
+}
+public class Test {
+    public static void main(String args[]){
+        Cat c = new Cat("catname","blue");
+        Dog d = new Dog("dogname","black");
+        Bird b = new Bird();
+        //Lady l1 = new Lady("l1",c);
+        Lady l2 = new Lady("l2",d);
+        Lady l3 = new Lady("l3",b);
+       //l1.myPetEnjoy();
+        l2.myPetEnjoy();
+        l3.myPetEnjoy();
+    }
+}
+38、abstract 抽象类和抽象方法   只有定义没有实现，就是说你只要定义就行了  public void enjoy(){}  == public abstract void enjoy(){}   就是说这个方法就是等着被重写的
+              一旦你定义为抽象  俺么你一定就要重写     
+39、接口：一种特殊的抽象类，抽线方法和常量的集合    public interface Runner{}  没有变量也没有具体实现的方法  你只需要有一个final的定义常量以及一个方法的函数明就ok
+          金丝猴是一个动物，动物是一个父类    同时金丝猴也是一个值钱的东西   值钱的东西也是一个父类  interface    implement
+       想同时继承两个父类，不行Java的extends一个 子类只支持继承一个父类  所以引用接口的概念
+      一个类可以实现多继承了，接口还可以继承其他的接口class Teacher implemet Sing,Painter{}   
+public interface Valuable {
+ public double getMoney();
+}
+interface Protectable {
+ public void beProtected();
+}
+interface A extends Protectable {
+ void m();
+ void getMoney();
+}
+abstract class Animal {
+ private String name; 
+ abstract void enjoy();
+}
+class GoldenMonkey extends Animal implements Valuable, Protectable {
+ public double getMoney() {
+  return 10000;
+ } 
+ public void beProtected() {
+  System.out.println("live in the room");
+ } 
+ public void enjoy() {
+  
+ } 
+ public void test() {
+  Valuable v = new GoldenMonkey();
+  v.getMoney();
+  Protectable p = (Protectable)v;
+  p.beProtected();
+ }
+}
+class Hen implements A  {
+ public void m() {}
+ public void beProtected() {}
+ public double getMoney() {
+  return 1.0;
+ } 
+ public void getMoney() {}
+}
+ 
+异常处理，就是常见的错误进行修正
+40、关键字 try 尝试这条语句   catch捕获异常 try后面可以跟上多个catch语句一对多；一个catch只能对应一种类型的异常
+       catch语句先写小的再写大的  
+41、  int[] arr = {1, 2, 3};
+  System.out.println(arr[2]);
+  try {
+   System.out.println(2/0);
+  } catch (ArithmeticException e) {      抓住上面2/0的错误，因为你一斤出错的(ArithmeticException 是一个类，有系统自动长产生
+   System.out.println("系统正在维护,请与管理员联系");
+   e.printStackTrace();   把错误的堆栈打印出来  因为它可能是由上一个错误打印来
+  }
+42、就是提供用户的出错的提示，生成一个出错的类 在把你显示出来
+        这个功能就是做到错错人性化，不想C语言的要程序员自己找错
+43、throws关键字    可能抛出的程序条件 就是说怕你子啊thows里面写得代价吗就是可能会出错的，而出错的时候就会可以根据你写的东西 显示出到底是什么错误
+        只要你有错误的Exception我就可以抛出去，出错了我不处理，交给上级
+              void m(int i) throws ArithmeticException {
+  if(i==0) 
+   throw new ArithmeticException("被除数为0");   创建一个新的类，里面的参数是“String”交给系统
+ }
+44、                                                  thowsable  可抛出的   
+                                           |                                                                |
+                                        Error（系统的不可处理）                        Exception（可处理的） 
+                                          |   |                                                        |               |
+                                         其他                                                   其他        RuntimeException（经常出的错误，你可以不处理的）
+                                         还有就是不是经常出的错误，那么你一定就要用Catch把他逮住，然后thows出去 
+45、finally语句：作用提供统一的出口，是的抛出程序复原，如果没有finally -> 跑飞，还 关闭临时文件，清楚过程垃圾
+                           try{  .....语句1 (语句1出错 语句2不可能执行) 语句2......}
+                             |   ————————————————————————>>
+                          catch  (SomeException_1 se) { ......... 处理的语句 ..........}               |
+                             .                                                                                               |
+                          catch  (SomeException_2 se) { ......... 处理的语句 ..........}               |    
+                             |   <<———————————————————————
+                         finally {   ...无论你是执行了几个catch语句，最后都会经过finally语句后跳出出错内存... } 
+46、注意就是： 在类继承的重写方法里面所抛出的异常类型必须与原方法的抛出类型一致
+  不同的不行，大了也不行，但是你可以不抛异常，可以抛。
+
+47、数组申明：type var[];   或者 type[] var;    也像 c一样就是 int  double short 
+48、数组有动态初始化（分开赋值）和静态初始化（定义时候就赋值）： 
+49、int[] a = {2, 4, 6, 7, 3, 5, 1, 9, 8};
+             int [] aa = new int[3];
+        System.out.println(aa[1]);
+50、经过实验指导在Java中，你所定义的宿主必须是全部都给赋值了，不能有空的数组，不然会报错
+51、Integer.parseInt(args[i])  把字符数组转换为int类型
+public class TestDateSort {
+ public static void main(String[] args) {
+  Date[] days = new Date[5];
+  days[0] = new Date(2006, 5, 4);
+  days[1] = new Date(2006, 7, 4);
+  days[2] = new Date(2008, 5, 4);
+  days[3] = new Date(2004, 5, 9);
+  days[4] = new Date(2004, 5, 4);
+  
+  Date d = new Date(2006, 7, 4);
+  String str = String.valueOf(d);
+  //str = d.toString();
+  bubbleSort(days);
+  
+  for(int i=0; i<days.length; i++) {
+   System.out.println(days[i]);
+  }
+  
+  System.out.println(binarySearch(days, d));
+ }
+ 
+  public static Date[] bubbleSort(Date[] a){
+        int len = a.length;
+        for(int i = len-1;i>=1;i--){
+            for(int j = 0;j<=i-1;j++){
+                if(a[j].compare(a[j+1]) > 0){
+                    Date temp = a[j]; 
+                    a[j]=a[j+1];
+                    a[j+1]=temp;
+                }
+            }
+        }
+        return a;
+    }
+    
+    public static int binarySearch(Date[] days, Date d) {
+     if (days.length==0) return -1;
+    
+     int startPos = 0; 
+     int endPos = days.length-1;
+     int m = (startPos + endPos) / 2;
+     while(startPos <= endPos){
+       if(d.compare(days[m]) == 0) return m;
+       if(d.compare(days[m]) > 0) {
+        startPos = m + 1;
+       }
+       if(d.compare(days[m]) < 0) {
+        endPos = m -1;
+       }
+       m = (startPos + endPos) / 2;
+     }
+     return -1;
+    }
+}
+class Date {
+  int year, month, day;
+  
+  Date(int y, int m, int d) {
+    year = y; month = m; day = d;
+  }
+  
+  public int compare(Date date) {
+    return year > date.year ? 1
+           : year < date.year ? -1
+           : month > date.month ? 1
+           : month < date.month ? -1
+           : day > date.day ? 1
+           : day < date.day ? -1 : 0;
+  }
+  
+  public String toString() {
+   return "Year:Month:Day -- " + year + "-" + month + "-" + day;
+  }
+}
+
+52、在Java中的常用类，
+     比如有String类，就是在基础的底层里面它提供了比较方便的类调用方法给你们让你进行调用，从而简化了程序，他有很多String.xxx,具体可以查询API文档
+     
+53、StringBuffer类
+       可辨的字符序列  StringBuffer（）创建一个空的字符缓冲  StringBuffer（String str）把特定字符闯进去
+       String s1 ="Hello World"
+       String s2 = “Java”                     String是不可辨的字符序列就是内存不可变，StringBuffer是可变内存的字符序列  可以直接相加 s1 += s2;
+       public StringBuffer apend、insert、deleted
+54、基础数据类型的包装类 int double Boolean 
+       java.lang.foalt
+       valueOf
+55、math类的举例子说明用的不多
+       包装了一系列的数学运算 abs绝对值   
+      feil类的计算，java.io.feil   就是硬盘的文件名，也可以是路径明 public feil(String pathname),他会帮你创建文件 ，只要你给他制定的代码
+56、enum枚举类型
+      publi enum myColor {red, blue, green}
+     myColor m = myColor.red;
+
+第七章 容器，内容多且重要，装对象的东西就是容器，所有的东西都存储在一起。
+基本概念：容器的API、Collection的接口、interator接口、增强for循环、Set接口、List接口和Comparable接口、Collection接口、colection类、Map接口、自动打包和解包、泛型。
+                        
+                                                                                         collection
+                                                                                                |
+                      set（单个装，无顺序不可重复）                                                        list（单个装，有顺序可以重复）                                                                  map（两个装）
+                                                               对象本来就不是重复的，这里的重复是指equals的对象重复
+                                         |                                                                                                      |
+                                                                                                                          ArrayList()还有定义了各种方法
+                      
+57、collection接口：Collection c = new ArrayList();
+                                     c.add("HelloWorld");
+                                     c.add(new name ("f1","f3");
+                                     System.out.println(c)// 这里的C其实是在内部进行调用tostring方法
+58、Iterator接口：  所有的cellection都有的itertor接口，由于底层的容器不同时就是所以装的东西的便利性就不一样，是为方便容器里面的排序
+                               在API问文档里面  ，boolean hasnext（）
+                                                             object next（)
+                               itertorn你可以看作是一个指针,或者是一个实际上的，一个小小的指针，                                                                                                                                                                         
+59、增强型for语句，int[] arr = {1,2,3,4,5}   <--->    for(int i : arr)就是一个for循环
+                     同理： Collection c = new arraylist()                  for(Object o : c)他也是一个for循环
+      当时就是最不方便的就是，不能单独的读取下标值，所以一帮只用在全部的for中
+60、set方法：相同的元素不会被加入，就是set和list的区别 
+61、List接口：list容器可以根据其里面的序号拿出来，非常像数组，优点在于可以自己改变大小
+62、compareable接口：实现排序大小的包，就是包括所有的排序方法的包，对外提交接口调用public int comparble （Object obj）
+       返回0   等于   返回正数>  返回负数<   
+       泛型，只能规定传特定类
+      可以重写comparable方法  compareTo.
+      里面很多方法的包装，你只要写算法就好了
+     Array读快改慢     linked改快读满    Hash俩者之间，根据这个选好适合的list接口
+63、Map接口：储存(键-值)  对；hashmap  和treemap,找到键就能找到值。所以是比较快的一种接口，键值不能重复
+64、
+65、自动打包（基础类转为对象）和解包（对象解为基础类）
+
+流IO，就是对数据输入输出原理，就是读取硬盘数据的
+66、方向，输入流输出流 --->  Inputsteram()   Outputstream  两个凡是stream结尾的 都是字节流  
+       处理数据单位：字节流和字符流    字符流 Reader wreiter
+       功能不同：节点流 和处理流--->直接怼在数据源上的管子。  处理流，在外面套上管道的流，可以处理其他杂质
+67、Inputstrea数据流为八位，输入数据，文件是必须要存在的
+ int b = 0;
+    FileInputStream in = null;
+    try {
+      in = new FileInputStream("d:\\share\\java\\io\\TestFileInputStream.java");
+    } catch (FileNotFoundException e) {
+      System.out.println("找不到指定文件"); 
+      System.exit(-1);
+    }
+    
+    try {
+      long num = 0;
+      while((b=in.read())!=-1){
+        System.out.print((char)b); 
+        num++;
+      }
+      in.close();  
+      System.out.println();
+      System.out.println("共读取了 "+num+" 个字节");
+        但是OutputStream是不需要有文件的，自动生成你民命的文件        
+   int b = 0;
+   FileInputStream in = null;
+   FileOutputStream out = null;
+   try {
+     in = new FileInputStream("d:/share/java/HelloWorld.java");
+     out = new FileOutputStream("d:/share/java/io/HW.java");
+     while((b=in.read())!=-1){
+       out.write(b);
+     }
+     in.close(); 
+     out.close();
+   } catch (FileNotFoundException e2) {
+     System.out.println("找不到指定文件"); System.exit(-1);
+68、处理流
+       缓冲流：带缓冲区的，保护硬盘BufferedReader
+  try {
+      BufferedWriter bw = new BufferedWriter(new FileWriter("d:\\share\\java\\dat2.txt"));
+      BufferedReader br = new BufferedReader(
+             new FileReader("d:\\share\\java\\dat2.txt"));
+      String s = null;
+      for(int i=1;i<=100;i++){
+        s = String.valueOf(Math.random());
+        bw.write(s);
+        bw.newLine();
+      }
+      bw.flush();
+      while((s=br.readLine())!=null){
+        System.out.println(s);
+      }
+      bw.close(); 
+      br.close();
+    } catch (IOException e) { e.printStackTrace();}
+69、Tranform转换流非常有用：把字节转换为字符
+    try {
+      OutputStreamWriter osw = new OutputStreamWriter(
+           new FileOutputStream("d:\\bak\\char.txt"));
+      osw.write("mircosoftibmsunapplehp");
+      System.out.println(osw.getEncoding());
+      osw.close();
+      osw = new OutputStreamWriter(
+  new FileOutputStream("d:\\bak\\char.txt", true),//true追加
+      "ISO8859_1"); // latin-1
+      osw.write("mircosoftibmsunapplehp");
+      System.out.println(osw.getEncoding());
+      osw.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+70、堵塞  你不输入你不退出我就不干任何事
+    InputStreamReader isr = 
+            new InputStreamReader(System.in);
+    BufferedReader br = new BufferedReader(isr);
+    String s = null;
+    try {
+      s = br.readLine();
+      while(s!=null){
+        if(s.equalsIgnoreCase("exit")) break;
+        System.out.println(s.toUpperCase());
+        s = br.readLine();
+      }
+      br.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+71、DateSteam  先写的先读，不然会导致数据错误
+ArrayOutputStream baos = 
+                        new ByteArrayOutputStream(); 
+    DataOutputStream dos = 
+                        new DataOutputStream(baos);
+    try {
+      dos.writeDouble(Math.random());
+      dos.writeBoolean(true);
+      ByteArrayInputStream bais = 
+          new ByteArrayInputStream(baos.toByteArray());
+      System.out.println(bais.available());
+      DataInputStream dis = new DataInputStream(bais);
+      System.out.println(dis.readDouble());
+      System.out.println(dis.readBoolean());
+      dos.close();  dis.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+72、printf流  只有输出流
+       System。setout（ps）  这样打印就不是打印在窗口了，想在就是打印在了你设定的PS上，对应的管道接口上
+
+Java的多线程机制：程序内部的不同的执行路径，顺序控制流
+                                 main 主方法，程序只有一条主路径往下执行
+       多线程就是有多个分支，进程不是线程，进程里面有主线程和多线程，机器里面实际上都是线程，
+       CPU不是同时能执行多个线程的，只是速度太快的，所以实际上多线程是一个时间点执行的，速度高看起来就是多线程，除非多核机器就是可以多线程的
+             
+73、如何开辟一个新线程，两个方法：通过Thread对象即可，public void run（）{}或者 public void start（）{}两者有区别
+      public class TestThread1 {
+ public static void main(String args[]) {
+  Runner1 r = new Runner1();
+  //r.start();
+  //r.run();这个是方法调用，不会生成多线程
+  Thread t = new Thread(r);
+  t.start();  在strart这个点上产生了一个分支，就是在mian里面有执行，同时也会跑到runner1里面运行，你输出一会我输出一会
+  
+  for(int i=0; i<100; i++) {
+   System.out.println("Main Thread:------" + i);
+  }
+ }
+}
+       class Runner1 implements Runnable {
+       //class Runner1 extends Thread {
+ public void run() {
+  for(int i=0; i<100; i++) { 
+   System.out.println("Runner1 :" + i);
+  }
+ }
+}
+74、线程的状态转换，    创建-->start(处于准备就绪状态)                    <--调度-->                         运行状态———>终止
+                                                         |                                                                                                |
+                                                  解除堵塞<————CPU在忙其他不能分配时间<——————产生堵塞事件
+75、线程的基本方法：
+isalive（）是否还活着
+getPriority（）获取优先级
+ setPriority（）设置优先级
+Thread.sleep（）当前线程睡眠时间 
+sleep方法（ms）一般毫秒数 再重写方法里面不能throw错误
+join方法  把你新创建的线程和mian合并，变成相当于单线程的规律
+yeild方法让出CPU，让其他线程执行的机会
+76、线程的优先级，优先级越高的CPU给的时间越多
+线程同步问题： 两个线程同时访问同一份资源的时候就需要线程同步了，不然数据错误
+      解决办法：保护资源，一时间只允许单线程访问，归我独占
+public class TestSync implements Runnable {
+  Timer timer = new Timer();
+  public static void main(String[] args) {
+    TestSync test = new TestSync();
+    Thread t1 = new Thread(test);
+    Thread t2 = new Thread(test);
+    t1.setName("t1"); 
+    t2.setName("t2");
+    t1.start(); 
+    t2.start();
+  }
+  public void run(){
+    timer.add(Thread.currentThread().getName());
+  }
+}
+class Timer{
+  private static int num = 0;
+  public synchronized void add(String name){ 
+   //synchronized (this) {//锁定当前对象，只允许一个线程进行访问
+     num ++;
+     try {Thread.sleep(1);} 
+     catch (InterruptedException e) {}
+     System.out.println(name+", 你是第"+num+"个使用timer的线程");
+   //}
+  }
+}
+77、死锁，线程执行过程中互斥，你锁了我要的我也锁了你要的，就是两者都不能使用被锁住的资源
+ public int flag = 1;
+ static Object o1 = new Object(), o2 = new Object();
+ public void run() {
+System.out.println("flag=" + flag);
+  if(flag == 1) {
+   synchronized(o1) {
+    try {
+     Thread.sleep(500);
+    } catch (Exception e) {
+     e.printStackTrace();
+    }
+    synchronized(o2) {
+     System.out.println("1"); 
+    }
+   }
+  }
+  if(flag == 0) {
+   synchronized(o2) {
+    try {
+     Thread.sleep(500);
+    } catch (Exception e) {
+     e.printStackTrace();
+    }
+    synchronized(o1) {
+     System.out.println("0");
+    }
+   }
+  }
+ } 
+ 
+ public static void main(String[] args) {
+  TestDeadLock td1 = new TestDeadLock();
+  TestDeadLock td2 = new TestDeadLock();
+  td1.flag = 1;
+  td2.flag = 0;
+  Thread t1 = new Thread(td1);
+  Thread t2 = new Thread(td2);
+  t1.start();
+  t2.start();
+  
+ }
+78、方法之间都应该写上同步
+生产者与消费者之间的问题：举例：做馒头和卖馒头的问题，具体看程序，要理解渗透
+       
+网络编程：网络基础、TCP\IP\UDP协议、IP地址、Socket通信
+网络编程不等于网站编程！！！
+79、分层的封装和拆封  IP 地址又四个字节组成一个字节最大255
+80、TCP端口和UDP端口是不同的
+
+GUI编程：图形应用界面，AWT、组件容器、布局管理器、事件处理、Java图形
+AWT：包 包括很多接口和类，元素，窗口按钮文本框。
+           awt并没用完全的跨平台，同时也并不是主流的开发图形语言
+81、第一个是Fream类
+       public static void main( String args[]) {
+  Frame f = new Frame("My First Test");
+  f.setLocation(1000, 500);
+  f.setSize( 300,500);
+  f.setBackground( Color.red);
+  f.setResizable(true);
+  f.setVisible( true);
+ }
+82、Panle类，是Fream里面的窗口
+          public static void main(String args[]) {
+        Frame f = 
+             new Frame("Java Frame with Panel");
+         Panel p = new Panel(null);
+         f.setLayout(null);
+         f.setBounds(300,300,500,500);
+         f.setBackground(new Color(0,0,102));
+         p.setBounds(50,50,400,400);
+         p.setBackground(new Color(204,204,255));
+         f.add(p);             在Fream里面加上Panle
+         f.setVisible(true);
+    }
+83、五种布局管理器：layout后缀
+        fream里面有很多个Panle，就是布局Panle的位置，改变大小里面的panle你跟不跟着改呢？
+        随时跟着变大变大变小，
+FlowLayout（）
+    Panle类的默认管理器，流水线线式的摆panle，默认间距水平垂直都是 5
+        public static void main(String args[]) {
+     Frame f = new Frame("Flow Layout");
+        Button button1 = new Button("Ok");
+        Button button2 = new Button("Open");
+        Button button3 = new Button("Close");
+        f.setLayout(new FlowLayout(FlowLayout.LEFT));
+        f.add(button1);
+        f.add(button2);
+        f.add(button3);
+        f.setSize(100,100);
+        f.setVisible(true);
+    }
+BorderLayout（）
+     东西南北中五个区域，就是布局方式的不一样其余均相同，
+ public static void main(String args[]) {
+  Frame f;
+  f = new Frame("Border Layout");
+  Button bn = new Button("BN");
+  Button bs = new Button("BS");
+  Button bw = new Button("BW");
+  Button be = new Button("BE");
+  Button bc = new Button("BC");
+  
+  f.add(bn, "North");
+  f.add(bs, "South");
+  f.add(bw, "West");
+  f.add(be, "East");
+  f.add(bc, "Center");
+  // 也可使用下述语句
+  /*
+  f.add(bn, BorderLayout.NORTH);
+  f.add(bs, BorderLayout.SOUTH);
+  f.add(bw, BorderLayout.WEST);
+  f.add(be, BorderLayout.EAST);
+  f.add(bc, BorderLayout.CENTER);
+  */
+  
+  f.setSize(200,200);
+  f.setVisible(true);
+ }
+}
+GridLayout()
+ public static void main(String args[]) {
+        Frame f = new Frame("GridLayout Example");
+        Button b1 = new Button("b1");
+        Button b2 = new Button("b2");
+        Button b3 = new Button("b3");
+        Button b4 = new Button("b4");
+        Button b5 = new Button("b5");
+        Button b6 = new Button("b6");
+        f.setLayout (new GridLayout(3,2));
+        f.add(b1);        
+        f.add(b2);
+        f.add(b3);        
+        f.add(b4);
+        f.add(b5);        
+        f.add(b6);
+        f.pack();          
+        f.setVisible(true);
+ }
+84、事件监听模型，比较重要！
+      按钮摁下去之后变得有反应，所以叫监听。
+      不是主动的监听，他的机理是在监听他有没有发生的情况，然后跑过来再执行他的程序代码，从而实现自动化监听
+                  事件源模型                  ----               实现某种监听器接口类的对象
+public class TestActionEvent {
+    public static void main(String args[]) {
+   Frame f = new Frame("Test");
+   Button b = new Button("Press Me!");
+   Monitor bh = new Monitor();
+   b.addActionListener(bh);
+   f.add(b,BorderLayout.CENTER);
+   f.pack();
+   f.setVisible(true);
+    }
+}
+class Monitor implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("a button has been pressed");    
+    }
+}
+85、TextFeil类：创建文本框
+         public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  new TFFrame();
+ }
+}
+class TFFrame extends Frame
+{
+ TFFrame()
+ {
+  TextField tf = new TextField();
+  add(tf);
+  tf.addActionListener(new TFActionListener());
+  pack();
+  setVisible(true);
+ }
+}
+class TFActionListener implements ActionListener
+{
+ public void actionPerformed(ActionEvent e)
+ {
+  TextField tf = (TextField)e.getSource();
+  System.out.println(tf.getText());
+  //tf.setText("");   读完之后回车清零
+ }
+}
+86、持有对方引用，内部类
+       
+87、Paint方法，就是再窗口内画图的机制Graphics类，也是提供各种接口
+
+正则表达式，字符串处理利器
+用处：字符串匹配、查找、替换 ，从网页里面揪出email地址或着找出相应的连接
+88、System.out.println("Caden".matches("....."));//一个小点.代表的意思是一个之母，五个点就是匹配
+       p("aihfo324ah".replaceAll("\\d", "-"));//replace前者，替换为后者
+     Pattern p = Pattern.compile("[a-z]{3}");
+     Matcher m = p.matcher("fgh");
+     p(m.matches());
+     //p(("fgh".matches("[a-z]{3}")));//查找符不符合的问题，三句话可以写成一句话
+89、初步认识 . * + ？三个特殊字符，以及范围字符
+.代表一个字符，         *零个或多个这个的字符，如a*，        +一个或多个a+，        ？一个或零a？
+{}是代表在什么内，如{3，9}大于三次小于九次
+【】代表的是在什么方位内，如【a-z】或者【0-3】
+ p("192.168.1.1".matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}"));
+90、表达式范围表示
+【abc】abc的一个有就可以了
+91、\S\D\W的几个意思
+\d
+数字：[0-9]
+\D非数字： [^0-9]
+\s空白字符：[ \t\n\x0B\f\r]
+\S非空白字符：[^\s]
+\w单词字符：[a-zA-Z_0-9]
+\W非单词字符：[^\w]
+92、边界匹配：
+93、寻找空白行p("  \n".maches("^[\\\s&&[^\\n]]\\n$"));
+94、匹配邮箱地址：maches("[\\w{.-}]")..............
+95、find looking
+     
+96、m.find查找匹配的字符串子串，然后再在剩下的字符串中继续查找
+       m.lookingAt()每次找都是从头上开始找
+       m.maches是找整个字符串
+97、字符串的替换，先找出来在替换
+     Pattern p = Pattern.compile("[a-z]{3}");
+     Matcher m = p.matcher("fgh");
+     p(m.matches()); 
+98、字符串的分组，用小括号（），m.ground（1）
+99
+100、
