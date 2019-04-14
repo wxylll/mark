@@ -1,0 +1,65 @@
+js
+对于用户名和密码的判空
+ 密码格式的校检（不少于5个字，不能全是数字，必须包含符号）
+checkpassword = function(v){
+var numasc = 0;
+var charasc = 0;
+var otherasc = 0;
+if(0==v.length){
+return "密码不能为空";
+}else if(v.length<5){
+return "密码至少5个字符";
+}else{
+for (var i = 0; i < v.length; i++) {
+var asciiNumber = v.substr(i, 1).charCodeAt();
+if (asciiNumber >= 48 && asciiNumber <= 57) {
+numasc += 1;
+}
+if ((asciiNumber >= 65 && asciiNumber <= 90)||(asciiNumber >= 97 && asciiNumber <= 122)) {
+charasc += 1;
+}
+if ((asciiNumber >= 33 && asciiNumber <= 47)||(asciiNumber >= 58 && asciiNumber <= 64)||(asciiNumber >= 91 && asciiNumber <= 96)||(asciiNumber >= 123 && asciiNumber <= 126)) {
+otherasc += 1;
+}
+}
+if(0==numasc) {
+return "密码必须含有数字";
+}else if(0==charasc){
+return "密码必须含有字母";
+}else if(0==otherasc){
+return "密码必须含有特殊字符";
+}else{
+return true;
+}
+}
+};
+
+另一种<包含数字加字母，不能有特殊符号><若必须要特殊符号则改为真>
+function CheckPassWord(password) {//必须为字母加数字且长度不小于5位
+   var str = password;
+    if (str == null || str.length <5) {
+        return false;
+    }
+    var reg1 = new RegExp(/^[0-9A-Za-z]+$/);
+    if (!reg1.test(str)) {
+        return false;
+    }
+    var reg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);
+    if (reg.test(str)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+
+
+
+同步异步回调执行顺序
+同步>异步>回调
+
+for循环和循环体外部的console是同步的，所以先执行for循环，再执行外部的console.log。（同步优先）
+for循环里面有一个setTimeout回调，他是垫底的存在，只能最后执行。（回调垫底）
