@@ -1,0 +1,52 @@
+外部js引入js:<script src="/js/example_externaljs.js">
+</script>
+里面说什么就相当于在html里写什么：document.write("<h1>Hello World!</h1>")
+警告框：alert("该提示框是通过 onload 事件调用的。") 
+
+
+js里变量唯一的类型var：动态类型（癞子）
+0.var的老本行：变量声明var carname=new String;由于类型动态的可能会混乱，所以var也可以用来声明。
+1.对var num = 5.5;声明变量num是个变量，并对其赋值。此时var相当于double
+2.创建数组：var cars=new Array(); 和java相仿 创建一个引用类型的 此时var相当于int[]
+3.创建对象：名称:值 (name : value) 
+var person={firstname:"Bill", lastname:"Gates", id:5566};此时var相当于Person（一种Object）
+4.调用对象的属性：
+a.name=person.lastname; 对象名.实例变量名。
+b.name=person["lastname"];此时像极了"lastname"是下标，"Gates"元素。耶！
+注意：
+1.以‘ ’“ ”赋值都是字符串，相当于一串文本。此时var相当于String。
+2.如果把数字与字符串相加，结果将成为字符串。
+3.不赋值默认是undefined。
+4.var 为 boolean是 也是ture false .不参与他们的转换。有一个比较运算符===：全等（值和类型）eg:x===5 为 true；x==="5" 为 false 
+
+
+
+一般情况函数的调用时机：     
+1.<button onclick="myFunction()">请点击我运行</button>
+onclick 点击会发生   
+2.<head onload="myFunction> </head>
+onload 页面加载后发生
+
+
+函数调用：
+onclick="myFunction('Bill Gates','CEO')"
+函数的内部：
+<script>
+function myFunction(name,job)
+{
+alert("Welcome " + name + ", the " + job);
+}
+</script>
+
+
+函数的返回值
+1.就当做他是个var吧，包括void、int...
+function add(a,b)
+{
+    return a+b;
+}
+这么写也是对的。
+2.作为一个正经的函数  会以return结束的
+
+全局变量在函数之外，生存周期是页面开始到页面结束。
+而局部变量在函数里，生存周期是函数开始到函数结束。
