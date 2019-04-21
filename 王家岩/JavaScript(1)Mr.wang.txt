@@ -1,0 +1,45 @@
+1.概述：JavaScript是一种运行于JavaScript解释器/引擎中的解释型脚本语言
+2.JS组成：（1）核心（ECMAScript）
+               （2）文档对象（DOM，Document Object Model让JS有能力与网页进行对话）
+               （3）浏览器对象模型（BOM，Browser Object Model让JS有能力与浏览器进行对话）
+	（完整的JS是由三部分组成）
+3.变量：【1】变量的声明
+	var userName；
+             【2】变量的赋值
+	变量名=值；
+	var bookPrice=25.5；
+             	注：声明过程中，尽量不要省略var关键字，否则声明的是全局变量
+             【3】一次性声明多个变量并赋值
+	var 变量名1，变量名2，变量名3.......;
+	var stuName="PP","stuAge=25","stuHeight";
+		等同于
+		var stuName="PP"；
+		var stuAge=25；
+		var stuHeight；
+              【4】命名规范					 关键字
+					┌──────┬──────┬──────┬──────┬──────┐
+	1.不允许使用JS的关键字		│  break   │    case   │     catch │continue│ default  │           
+	和保留关键字			├──────┼──────┼──────┼──────┼──────┘
+	2.由字母，数字，下划线以及		┌──────┬──────┬──────┬──────┬──────┐
+	$组成				│    delete │      do    │     else   │ false      │   finally │             
+	var stuName1；			├──────┼──────┼──────┼──────┼──────┘
+	var stuName；			┌──────┬──────┬──────┬──────┬──────┐
+	var stu_name；			│       for  │ function│      if    	 │       in    │instanceof│             
+	var $stuName；			├──────┼──────┼──────┼──────┼──────┘	
+	3.不能以数字开头			┌──────┬──────┬──────┬──────┬──────┐
+	var 1stuName；错误		│  new     │       null  │    try      │ typeof  │         this│              
+	4.尽量见名知意			├──────┼──────┼──────┼──────┼──────┘
+	5.可以采用驼峰命名法		┌──────┬──────┬──────┬──────┬──────┐
+					│   throw  │  true     │  return   │   switch │       var  │              
+					├──────┼──────┼──────┼──────┼──────┘
+					┌──────┬──────┬──────┬──────┬──────┐
+					│       void│   while   │     with  │undefined│...         │              
+					├──────┼──────┼──────┼──────┼──────┘
+4.变量的使用
+	var stuName="小猪佩奇"；
+	console.log(stuName);
+	【1】未经初始化变量
+	var stuAge;
+	console.log(stuAge);
+	变量声明后，从未赋值，称之为未经初始化变量
+
