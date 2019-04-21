@@ -1,0 +1,67 @@
+用CSS修改字体大小：font-size:
+<br>
+改变颜色：color:
+<br>
+改变字间距：font-weight:
+<br>
+
+##### 如何设置文本的颜色：
+把需要改变颜色的文字用短语
+<code>
+span  /span
+</code>
+括起来，然后写入下列代码<br>
+<code>
+span{ <br>
+    color: ;<br>
+}
+</code>
+
+
+##### CSS 代码语法
+<img src="http://img.mukewang.com/52fde5c30001b0fe03030117.jpg">
+<br>
+选择符指的是网页中要用到样式规则的元素
+
+
+##### 注释代码
+
+注释代码和java类似
+
+
+CSS样式的优先级：
+<br>
+内联样式表（标签内部）>嵌入样式表（当前文件中）>外部样式表（外部文件中）
+<br>
+
+文字排版
+<br>
+斜体：
+P a{font-style:italic;}
+<br>
+下划线： <p a{text-decoration:underline;}
+<br>
+删除线：.oldPrice{text-decoration:line-through;}
+<br>
+文字排版：p{text-indent:2em;}
+<br>
+行间距：p{line-weight:xem;}
+<br>
+段落排版：对齐
+<br>
+中间对齐：text-align:center;<br>
+居左对齐：text-align:left;<br>
+居右对齐：text-align:right;<br>
+
+
+
+
+
+##### 层模型：绝对定位
+如果想为元素设置层模型中的绝对定位，需要设置position:absolute(表示绝对定位)，这条语句的作用将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。
+<img src="http://img.mukewang.com/53a00b130001e86707360547.jpg">
+
+##### 层模型：相对定位
+如果想为元素设置层模型中的相对定位，需要设置position:relative（表示相对定位），它通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。相对定位完成的过程是首先按static(float)方式生成一个元素(并且元素像层一样浮动了起来)，然后相对于以前的位置移动，移动的方向和幅度由left、right、top、bottom属性确定，偏移前的位置保留不动。
+<img src=http://img.mukewang.com/53a00d2b00015c4b06190509.jpg>
+
