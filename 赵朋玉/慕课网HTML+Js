@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PY慕课网</title>
+    <link type="text/css" rel="stylesheet" href="PY.css">
+</head>
+<body>
+<div id="header">
+    <div class="page-container">
+        <div class="logo" id="logo">
+            <img src="img/logo.png">
+        </div>
+        <ul class="nav">
+            <li class="a1">免费课程</li>
+            <li class="a1">实战课程</li>
+            <li class="a1">就业班</li>
+            <li class="a1">专栏</li>
+            <li class="a1">猿问</li>
+            <li class="a1">手记</li>
+        </ul>
+        <div class="nav">
+            <div class="a1">
+                <input type="text" style="border-radius: 20px">
+                <input type="submit" style="border-radius: 20px">
+            </div>
+        </div>
+        <div class="nav">
+            <div class="a1">分享赚学费</div>
+            <div class="a2">下载APP</div>
+            <div class="a2">购物车</div>
+            <div class="a1">登录&nbsp; &nbsp;/&nbsp;&nbsp;注册</div>
+        </div>
+    </div>
+    <div class="menu">
+        <ul class="menu1">
+            <li class="b">&nbsp; &nbsp;前沿/区块链/人工智能</li>
+            <li class="b">&nbsp; &nbsp;前端/小程序/Js</li>
+            <li class="b">&nbsp; &nbsp;后端/Java/Python</li>
+            <li class="b">&nbsp; &nbsp;移动/Android/ios</li>
+            <li class="b">&nbsp; &nbsp;云计算/大数据/容器</li>
+            <li class="b">&nbsp; &nbsp;运维/测试/数据库</li>
+            <li class="b">&nbsp; &nbsp;UI设计/3D动画/游戏</li>
+        </ul>
+    </div>
+</div>
+<div class="body">
+    <div class="c">
+        <div class="container">
+        <div class="wrap" style="left: -1100px;">
+            <img src="./img/轮播1.jpg" alt="">
+            <img src="./img/轮播2.jpg" alt="">
+            <img src="./img/轮播3.jpg" alt="">
+            <img src="./img/轮播4.jpg" alt="">
+            <img src="./img/轮播5.jpg" alt="">
+            <img src="./img/轮播6.jpg" alt="">
+            <img src="./img/轮播2.jpg" alt="">
+        </div>
+        <div class="buttons">
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+        <a href="javascript:;" class="arrow arrow_left">&lt;</a>
+        <a href="javascript:;" class="arrow arrow_right">&gt;</a>
+    </div>
+    </div>
+</div>
+<script>
+     var wrap = document.querySelector(".wrap");
+        var next = document.querySelector(".arrow_right");
+        var prev = document.querySelector(".arrow_left");
+        next.onclick = function () {
+            next_pic();
+        }
+        prev.onclick = function () {
+            prev_pic();
+        }
+        function next_pic () {
+            index++;
+            if(index > 4){
+                index = 0;
+            }
+            showCurrentDot();
+            var newLeft;
+            if(wrap.style.left === "-6600px"){
+                newLeft = -2200;
+            }else{
+                newLeft = parseInt(wrap.style.left)-1100;
+            }
+            wrap.style.left = newLeft + "px";
+        }
+        function prev_pic () {
+            index--;
+            if(index < 0){
+                index = 4;
+            }
+            showCurrentDot();
+            var newLeft;
+            if(wrap.style.left === "0px"){
+                newLeft = -4400;
+            }else{
+                newLeft = parseInt(wrap.style.left)+1100;
+            }
+            wrap.style.left = newLeft + "px";
+        }
+        var timer = null;
+        function autoPlay () {
+            timer = setInterval(function () {
+                next_pic();
+            },2000);
+        }
+        autoPlay();
+
+        var container = document.querySelector(".container");
+        container.onmouseenter = function () {
+            clearInterval(timer);
+        }
+        container.onmouseleave = function () {
+            autoPlay();
+        }
+
+        var index = 0;
+        var dots = document.getElementsByTagName("span");
+        function showCurrentDot () {
+            for(var i = 0, len = dots.length; i < len; i++){
+                dots[i].className = "";
+            }
+            dots[index].className = "on";
+        }
+
+        for (var i = 0, len = dots.length; i < len; i++){
+            (function(i){
+                dots[i].onclick = function () {
+                    var dis = index - i;
+                    if(index == 4 && parseInt(wrap.style.left)!==-5500){
+                        dis = dis - 5;
+                    }
+                    //和使用prev和next相同，在最开始的照片5和最终的照片1在使用时会出现问题，导致符号和位数的出错，做相应地处理即可
+                    if(index == 0 && parseInt(wrap.style.left)!== -1100){
+                        dis = 5 + dis;
+                    }
+                    wrap.style.left = (parseInt(wrap.style.left) +  dis * 1100)+"px";
+                    index = i;
+                    showCurrentDot();
+                }
+            })(i);
+        }
+</script>
+</body>
+</html>
