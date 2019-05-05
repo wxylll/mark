@@ -1,0 +1,113 @@
+<html>
+<body>
+
+<table border="0" width="100%">
+  <tr>
+    <th><font size=5>慕课网</font></th>
+    <th>登录</th>
+    <th>免费课程</th>
+    <th>实战课程</th>
+    <th>就业班</th>
+    <th>专栏</th>
+    <th>猿问</th>
+    <th>手记</th>
+  <th>
+    <input type="text" placeholder="搜索..">
+  </th>
+     <th>分享赚学费</th>
+     <th>下载APP</th>
+     <th>购物车</th>
+     <th>登录</th>
+     <th> / </th>
+     <th>注册</th>
+      </tr>
+      
+
+   <table  cellpadding="15" border=0  width="100% "bgcolor="black">
+    <tr>
+    	<td width="14%">&nbsp;</td>
+    	
+    </tr>
+   
+	<tr>
+		<td width="14%">&nbsp;</td>
+      	<td ><font color="white">前沿/区块链/人工智能</font></td>	
+      	<td colspan="5" rowspan="5"width="14%"><img src="2.JPEG" hspace="0" vspace="0" ></td>
+      	<td colspan="5" rowspan="5"width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="5"width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="5"width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="5"width="14%">&nbsp;</td>
+        </tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td ><font color="white">前端/小程序/JS</font></td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	</tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td ><font color="white">后端/JAVA/Python</font></td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	</tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td ><font color="white">移动/Android/iOS</font></td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	</tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td><font color="white">云计算/大数据/容器</font></td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	</tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td><font color="white">运维/测试/数据库</font></td>
+      	<td colspan="5" rowspan="2" width="14%"><img src="1.JPEG"></td>
+      	<td colspan="5" rowspan="2" width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="2" width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="2" width="14%">&nbsp;</td>
+      	<td colspan="5" rowspan="2" width="14%">&nbsp;</td>
+      	
+      	</tr>
+    <tr>
+    	<td >&nbsp;</td>
+      	<td><font color="white">UI设计/3D动画/游戏</font></td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+      	<td width="14%">&nbsp;</td>
+    </tr>
+
+</table>
+
+     
+
+
+
+</body>
+</html>
+
+
+
+
+制作了简单界面 
+问题所在 没有懂得如何 
+1.鼠标移到文字框上如何显示剩余表格完整内容
+2.如何让插入的图片循环播放
+3.点击文字和图片的跳转
