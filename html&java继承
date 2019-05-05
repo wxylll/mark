@@ -1,0 +1,95 @@
+html是什么：hypertext  markup language超文本标记语言
+超文本：音频 视频 图片称为超文本
+标记：<英文单词或者字母>称为标记，一个html页面都是由各种标记组成
+html网络术语
+*网页：由各种标记组成的一个页面就叫网页
+*主页（首页）：一个网站的起始页面或者导航页面
+*标记：<p>称为开始标记，</p>称为结束标记，也叫标签，每个标签都规定好了特殊含义
+*元素：<p>内容</p>称为元素
+*属性：给每个标签所做的辅助信息
+*xhtml：符合XML语法标准的html
+package StarThread;
+
+public class StarThreaad {
+
+	  /**
+	   * 线程入口点
+	   * @param args
+	   */public void run() {
+		   for(int i=0;i<20;i++) {
+			   System.out.println("一边听歌");
+		   }
+	   }
+
+		public static void main(String[] args) {
+			//创建子类对象
+			StarThreaad st=new StarThreaad();
+			//启动
+			//st.star();
+			st.run();
+			for(int i=0;i<20;i++) {
+				System.out.println("一边coding");
+			}
+		}
+			
+}
+package Eemployee;
+
+public class employee {
+
+
+	private String id;
+	private String name;
+	protected double salary;
+	
+	public void Employee(String id,String name,double salary) {
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+	}
+	public double getSalary() {
+		return this.salary;
+	}
+	public void setSalary(double salary) {
+		this.salary=salary;
+	}
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name=name;
+	}
+	public String getDetails() {
+		return"员工编号:"+this.id+",姓名:"+this.name+",工资："this.salary;
+	}
+
+}
+
+package Eemployee;
+
+public class manager extends employee {
+	 
+	
+	String dept;//部门
+	/*
+	 * exploree(){
+	 * super();
+	 * }
+	 */
+    public manager(String number,String name,double salary,String dept) {
+    	super();
+    	this.dept=dept;
+    }
+    public void det(String dept) {
+    	this.dept=dept;
+    	
+    	
+    }
+    public String getDept() {
+    	return dept;
+    }
+    public void show() {
+    	System.out.println("员工编号"+getNumber()+"员工的姓名"+getName()+"员工的薪水"+getSalary()+公司部门:"+getDept());
+    }
+   
+}
