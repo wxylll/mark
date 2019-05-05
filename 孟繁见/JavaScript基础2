@@ -1,0 +1,89 @@
+1.在Java里：
+字符串长度s.length() 是个方法 
+数组长度 a.length;length是个实例变量
+而在JavaScript里
+字符串长度是s.length;length是字符串的属性
+数组长度是a.length;length也是数组的属性
+2.当 String() 和运算符 new 一起作为构造函数使用时，它返回一个新创建的 String 对象，存放的是字符串 s 。
+String s1="abc";创建一个对象
+String s1=new("abc");创建两个对象
+3.toLowerCase()把字符串转换为小写。
+toUpperCase()把字符串转换为大写。
+4.对于一个对象，用toString()可以把它转成字符串。
+valueOf()返回某个字符串对象的原始值，还原toString()之前的对象。
+5.indexOf()检索字符串。
+charAt()返回在指定位置的字符。
+charCodeAt()返回在指定的位置的字符的 Unicode 编码。
+6.
+7.match()找到一个或多个正则表达式的匹配。
+replace()替换与正则表达式匹配的子串。
+search()检索与正则表达式相匹配的值。
+8.Array对象像一个双向队列deque
+两端都可以删除：
+pop()删除并返回数组的最后一个元素
+shift()删除并返回数组的第一个元素
+两端都可以删除：
+push()向数组的末尾添加一个或更多元素，并返回新的长度。
+unshift()向数组的开头添加一个或更多元素，并返回新的长度。
+9.功能性方法：
+concat()连接两个或更多的数组，并返回结果。
+reverse()颠倒数组中元素的顺序。
+sort()对数组的元素进行排序
+10.新增for循环的用法：
+for/in - 循环遍历对象的属性
+var person={Tom:"20",Amy:"18",Tony:"50"};
+for (x in person)
+{
+   txt += person[x];//记录信息
+}
+11.list:   //这是一个有名字的代码块。
+{
+    document.write(cars[2]);
+    break list;
+    document.write(cars[5]);
+}
+12.关于JavaScript的错误原因与处理
+可能是由程序员编码错误或错别字造成可避免的的语法错误。
+也可能是由于来自服务器或用户的错误输出出现不可避免的错误。
+13.try 测试一段可能有错误的代码块。
+catch 当try发生错误异常结束时，catch会捕捉这个错误，并对其进行处理。
+注意：在JavaScript里try和catch是成对出现的。
+var txt="";
+function message()
+{
+  try{
+    alret("hello！");//故意把alert写错
+  }
+catch(err)              //捕捉错误err
+  {
+  txt+="哈哈哈，你代码错了：" + err.message + "\n";
+  alert(txt);
+  }
+}
+运行结果将会是："哈哈哈，你代码错了：'alert'is not defined'"
+
+14.throw 抛出我们自定义的错误。
+<script>
+function Fun()
+{
+try
+  {
+  var num=document.getElementById("num").value;
+  if(num=="")  throw "输入的值为空";         //自定义错误可还行
+  if(isNaN(x)) throw "输入的不是个数字";
+  if(x>9)      throw "输入的数字过大";
+  if(x<9)      throw "输入的数字过小";
+  
+  }
+catch(error)
+  {
+  var y=document.getElementById("ans");
+  y.innerHTML="Ohno," + error;
+  }
+}
+</script>
+<input id="num" type="text">
+<button type="button" onclick="Fun()">Ok</button>
+<p id="ans"></p>
+
+若你输入5，运行结果会是Ohno,输入的数字过小。
