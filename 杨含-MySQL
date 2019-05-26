@@ -1,0 +1,379 @@
+在DOC系统中操作MySQL
+windows+Apache+PHP+MySQL的集成包，下面简称之为“wamp”。要在DOC系统中操作MySQL
+前需要进行的一些配置
+
+1> 环境变量
+
+　　　　我的电脑 -> 右击属性 -> 高级系统设置 -> 环境变量 ->系统变量 ->path
+
+　　　　在path变量后加上；变量值
+
+　　　　变量值就是MySQL下的bin目录路径 
+
+　　　　注意：必须开启wamp服务器才可以进去
+
+2>进入MySQL数据库
+
+　　　　DOS系统下清屏的命令：cls
+
+　　　　mysql -h localhost -u root -p -b
+
+　　　　　　-h 服务器(本地、指定服务器IP的)[本地localhost可以省略]
+　　　　　　-u	用户名(我们用的是root用户：超级管理员)
+　　　　　　-p	用户密码(不需要再它后面写密码，密码是回车之后写的)
+　　　　　　-b	蜂鸣器(当命令敲错了，报错时提示的声音)
+
+3>进入MySQL数据库以后的命令
+
+　　　　注意：
+　　　　1> 每一行命令结束了以后，请使用 ; 或 \g 来结束，否则命令可以一直写下去
+　　　　2> 在MySQL的命令中，如果一行命令没有敲完，就回车了，它会继续执行下去，前提是必须是一条完整的命令
+　　　　3> 退出敲错的命令、或不想继续执行下去的命令时，用\c 或者 Ctrl+c
+　　　　4> 我们要想让数据竖起来显示，在命令后用\G，有时候一行盛不下了会乱，\G可以解决这个问题
+　　　　5> \s 可以显示当前服务器的配置
+　　　　6> help 查看所有可以使用的快捷命令
+　　　　7> 如果在命令行中遇到了单引号，则MySQL认为你要输入一段字符串，所以，它是必须使用结束的单引号，可以跳出字符串输入状态；
+
+4> 退出数据库服务器
+　　　　\q 、 exit、 quit　　三者皆可
+
+　　　　注意：
+
+　　　　　　要想将我们在DOS命令行下边输入的所有的命令都存储到一个文档中，就需要使用tee命令
+
+　　　　tee 路径;
+
+　　　　例如：tee E:\wamp\www\Test\Test_MySQL\1.php
+操作数据库的一些命令
+
+1.创建数据库
+
+　　　　　　create database 数据库名;
+
+　　　　注意：
+　　　　　　1.如果数据库已存在，不能创建同名的数据库
+　　　　　　2.创建命令和数据库名都不区分大小写
+
+　　　　　　if not exists 如果数据库已存在，加上前面的关键字可以避免报错
+
+2.删除数据库
+
+　　　　　　drop database 数据库名;
+
+3.查看已创建的数据库
+
+　　　　　　show databases;
+
+4.使用一个数据库
+
+　　　　　　use 数据库名;
+
+5.查看当前我们所使用的数据库
+
+　　　　　　select database();
+
+6.查看建库语句
+
+　　　　　　show create database 数据库名;
+
+　　　　　　说明：通过该命令，我们可以看到所建数据库的建库语句、编码类型;
+
+　　　　　　注意：
+　　　　　　　　　　1.MySQL数据库中命令不区分大小写。
+
+　　　　　　　　　　2.每创建一个数据库，就会在data目录下创建一个以此数据库名称命名的文件夹。
+
+　　　　　　　　　　3.在Windows下，数据库名称也是不区分大小写的，但在Linux下，数据库名称严格区分大小写。
+
+7. 对数据表的操作
+
+　　　　　　表中的字段，其实可以理解为table表格中的表头
+
+　　　　　　　　　　1>创建数据表（不加任何主键信息，自增，数据限制条件的简易数据表创建）>最初练习可用
+　　　　　　　　　　　　create table 表名(
+　　　　　　　　　　　　字段名1 字段类型,
+　　　　　　　　　　　　字段名2 字段类型,
+　　　　　　　　　　　　字段名3 字段类型
+　　　　　　　　　　　　);
+
+　　　　　　　　　　　　注意：
+　　　　　　　　　　　　1.创建一个数据表时，它的每个字段之间用逗号","隔开;
+　　　　　　　　　　　　2.最后一个字段不用逗号",";
+　　　　　　　　　　　　3.创建完表以后，最后的括号后面使用分号结束
+　　　　　　　　　　　　4.建表时，表名后面的括号中写表的字段名(字段类型)
+
+　　　　　　　　　　2> 查看表结构
+
+　　　　　　　　　　　　desc 表名;
+
+　　　　　　　　　　3> 查看建表语句
+
+　　　　　　　　　　　　show create table 表名;
+
+　　　　　　　　　　4> 查看当前数据库存在的数据表
+
+　　　　　　　　　　　　show tables;
+
+　　　　　　　　　　5> 删除数据表
+
+　　　　　　　　　　　　drop table 表名
+
+8.对数据的操作
+
+　　　　　　　　　　1> 添加数据
+　　　　　　　　　　　　① insert into 表名 (字段1,字段2……) values (值1,值2……);
+
+　　　　　　　　　　　　② insert into 表名 values (值1,值2……),(值1,值2……);
+
+　　　　　　　　　　　　③ insert into 表名 (字段1,字段2……) values (值1,值2……),(值1,值2……);
+
+　　　　　　　　　　　　④ insert into 表名 values (值1,值2...);
+
+　　　　　　　　　　　　⑤ insert into 表名 set 字段1=值1,字段2=值2...;
+
+　　　　　　　　　　　　　　注意：
+　　　　　　　　　　　　　　　　1.值和字段名要一一对应，否则会报错
+　　　　　　　　　　　　　　　　2.你写入的值一定要和数据类型相匹配
+
+　　　　　　　　　　2> 删除数据
+
+　　　　　　　　　　　　　delete from 表名 where 条件;
+
+　　　　　　　　　　　　　　注意：删除数据的时候，一定要加上where条件，否则会删除所有的数据
+
+　　　　　　　　　　3> 修改数据
+
+　　　　　　　　　　　　　update 表名 set 要修改的字段=修改后的值 where 条件
+
+　　　　　　　　　　　　　　注意：修改数据的时候，一定要加上where条件，否则会修改所有的数据
+
+　　　　　　　　　　4> 查找数据
+
+　　　　　　　　　　　　　select *(所有字段) from 表;
+
+　　　　　　　　　　　　　select 字段1,字段2.. from 表;
+
+
+下载并学习使用editplus
+
+<?php
+while(me->find()){
+if(me->met()==your->self()){
+print("Hello,world!");
+}
+}
+?>
+ 
+
+<?php
+//对数据库的简单操作方法
+
+//显示存在所有的数据库
+mysql> show databases;    
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| lamp183            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+
+//删除数据库lamp183
+mysql> drop database lamp183;
+Query OK, 1 row affected (0.01 sec)
+
+
+//删除数据库lamp183
+mysql> drop database lamp183;
+Query OK, 0 rows affected (0.00 sec)
+
+
+//创建数据库lmap175
+mysql> create database lamp175;
+Query OK, 1 row affected (0.00 sec)
+
+
+//查看当前的数据库[没有被使用的数据库即使被创建也不会被查询到]
+mysql> select database();
++------------+
+| database() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+
+//使用lamp175数据库
+mysql> use lamp175;
+Database changed
+
+
+//当前数据库显示出lamp175,说明此数据库为当前操作的库
+mysql> select database();
++------------+
+| database() |
++------------+
+| lamp175    |
++------------+
+1 row in set (0.00 sec)
+
+
+//查看lamp175的建库语句 /G可以纵向显示
+mysql> show create database lamp175\G;
+*************************** 1. row ***************************
+       Database: lamp175
+Create Database: CREATE DATABASE `lamp175` /*!40100 DEFAULT CHARACTER SET latin1 */
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+
+//查看lamp175建库语句
+mysql> show create database lamp175;
++----------+--------------------------------------------------------------------+
+| Database | Create Database                                                    |
++----------+--------------------------------------------------------------------+
+| lamp175  | CREATE DATABASE `lamp175` /*!40100 DEFAULT CHARACTER SET latin1 */ |
++----------+--------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+
+mysql> create database lamp183;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use lamp183;
+Database changed
+
+
+//在lamp183数据库中创建stu数据表
+mysql> create table stu(    
+    -> id int,
+    -> name varchar(32),
+    -> sex varchar(2),
+    -> age int,
+    -> job varchar(32)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+
+mysql> desc stu;    //查看stu数据表的表结构
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(32) | YES  |     | NULL    |       |
+| sex   | varchar(2)  | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
+| job   | varchar(32) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+//查看stu的建表语句[可以查看到该表的编码类型,存储类型]
+mysql> show create table stu;
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                                                                                                                |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| stu   | CREATE TABLE `stu` (
+  `id` int(11) DEFAULT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `sex` varchar(2) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `job` varchar(32) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 |
++-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+//查看stu表的建表语句[竖起来查看]
+mysql> show create table stu\G;    
+*************************** 1. row ***************************
+       Table: stu
+Create Table: CREATE TABLE `stu` (
+  `id` int(11) DEFAULT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `sex` varchar(2) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `job` varchar(32) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+1 row in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+
+//查看当前数据库中所有的表
+mysql> show tables;
++-------------------+
+| Tables_in_lamp183 |
++-------------------+
+| stu               |
++-------------------+
+1 row in set (0.00 sec)
+
+
+//删除stu数据表
+mysql> drop table stu;
+Query OK, 0 rows affected (0.00 sec)
+
+
+//创建stu数据表
+mysql> create table stu(
+    -> id int,
+    -> name varchar(32),
+    -> sex varchar(2),
+    -> age int,
+    -> job varchar(32)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+
+//查看stu数据表的表结构
+mysql> desc stu;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | YES  |     | NULL    |       |
+| name  | varchar(32) | YES  |     | NULL    |       |
+| sex   | varchar(2)  | YES  |     | NULL    |       |
+| age   | int(11)     | YES  |     | NULL    |       |
+| job   | varchar(32) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+
+//查看stu数据表的所有数据
+mysql> select * from stu;
+Empty set (0.00 sec)
+
+
+//在stu数据表中插入数据
+mysql> insert into stu set id=9,name='haiyang',sex='w',age=38,job='toupai';
+Query OK, 1 row affected (0.00 sec)
+
+
+//查看stu数据表中所有数据
+mysql> select * from stu;
++------+----------+------+------+---------+
+| id   | name     | sex  | age  | job     |
++------+----------+------+------+---------+
+|    1 | zhangsan | w    |   18 | laobao  |
+|    2 | lisi     | m    | NULL | NULL    |
+|    3 | wangwu   | w    | NULL | NULL    |
+|    4 | maliu    | m    | NULL | NULL    |
+|    5 | zhaoqi   | w    | NULL | NULL    |
+|    6 | wangba   | m    |   20 | baoan   |
+|    7 | haibo    | w    |   28 | guigong |
+|    8 | hongze   | m    |   17 | student |
+|    9 | haiyang  | w    |   38 | toupai  |
++------+----------+------+------+---------+
+9 rows in set (0.00 sec)
+//退出MySQL数据库
+mysql> \q
+
