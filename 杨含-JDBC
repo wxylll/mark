@@ -1,0 +1,248 @@
+一、JDBC简介
+
+JDBC（Java DataBase Connectivity, java 数据库连接）是一种用于执行 SQL 语句的 Java API，
+可以为多种关系数据库提供统一访问，它由一组用 java 语言编写的类和接口组成。
+JDBC 提供了一个种基准，据此可以构建更高级的工具和接口，使数据库开发人员能够编写数据库应用程序，同时，JDBC 也是个商标名。
+
+二、JDBC 的开发步骤
+
+1）注册驱动：主要告诉 JVM 我们的程序将要使用哪一种数据库
+
+
+2）获取连接：使用 JDBC 中的类，获得数据库的连接对象 Connection
+
+
+3）获得语句执行平台：通过 Connection 可以获取执行者对象
+，Statement、PreparedStatement.
+
+
+4）执行 SQL 语句：使用执行者对象，向数据库中执行 SQL 语句，然后可以得到对应的接口，有单个结果，也可能有结果集 ResultSet。
+
+
+5）处理结果
+
+
+6）释放对象：关闭顺序：rs -> stmt 、ptmt -> conn
+
+// 1.注册驱动
+Class.forName("com.mysql.jdbc.Driver");        
+// 2.建立连接
+String url = "jdbc:mysql://localhost:3306/jdbc";
+
+String user = "root";
+
+String password = "";
+Connection conn = DriverManager.getConnection(url, user, password);
+// 3.创建语句
+Statement st = conn.createStatement();
+// 4.执行语句
+ResultSet rs = st.executeQuery("select id,name,age,money from user");
+// 5.处理结果
+while(rs.next())
+{
+  System.out.print(rs.getObject("id") + "---");
+  System.out.print(rs.getObject("name") + "---");
+  System.out.print(rs.getObject("age") + "---");
+  System.out.println(rs.getObject("money"));
+}
+// 6.释放资源
+rs.close();
+st.close();
+conn.close();
+复制代码
+ 
+
+二、各流程详解
+
+　　1. 注册驱动(只做一次)，有三种方式：
+
+复制代码
+1  // 方式一(推荐使用)：
+2  Class.forName("com.mysql.jdbc.Driver");
+3 
+4  // 方式二：
+5  System.setProperty("jdbc.drivers", "com.mysql.jdbc.Driver");
+6 
+7  // 方式三：
+8  DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+
+2. 建立连接(Connection)
+
+　　　(1) 代码格式：
+
+　　　　　Connection conn = DriverManager.getConnection(url, user, password);
+
+　　　(2) url格式：
+
+　　　　　JDBC:子协议:子名称//主机名:端口/数据库名?属性名=属性值&....
+
+　　　　　如果主机名与端口号是缺省值，主机名与端口可省略：
+
+　　　　　JDBC:子协议:子名称///数据库名?属性名=属性值&....
+
+　　　(3) User, Password可以用“属性名=属性值”的方式告诉数据库。
+
+　　　(4) 其他参数如：
+
+　　　　　useUnicode = true&characterEncoding=GBK.
+
+ 
+
+　　3. 创建可执行sql语句的对象(Statement)
+
+　　　　Statement st = conn.createStatement();
+
+　　4. 执行sql语句,用ResultSet对象接收执行结果
+
+　　　　ResultSet rs = st.executeQuery("select id,name,age,money from user");
+
+　　5. 用rs.next()遍历查询到的结果
+
+　　　　while(rs.next())
+   　　　{
+    　　　　System.out.print(rs.getObject("id") + "---");
+   　　 　　System.out.print(rs.getObject("name") + "---");
+    　　　　System.out.print(rs.getObject("age") + "---");
+    　　　　System.out.println(rs.getObject("money"));
+   　　　}
+
+　　6. 释放资源时，按创建时的逆序关闭
+
+　　　　rs.close();
+
+　　　　st.close();
+
+　　　　conn.close();
+
+
+//STEP 1. Import required packages
+
+import java.sql.*;
+
+
+public class FirstExample {
+ 
+  // JDBC driver name and database URL
+ 
+  static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
+   
+static final String DB_URL = "jdbc:mysql://localhost/emp";
+
+   
+//  Database credentials
+   static final String USER = "root";
+  
+ static final String PASS = "123456";
+
+ 
+  public static void main(String[] args) {
+   Connection conn = null;
+  
+ Statement stmt = null;
+   
+try{
+      //STEP 2: Register JDBC driver
+      Class.forName("com.mysql.jdbc.Driver");
+
+   
+   //STEP 3: Open a connection
+  
+    System.out.println("Connecting to database...");
+    
+  conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+  
+    //STEP 4: Execute a query
+     
+ System.out.println("Creating statement...");
+    
+  stmt = conn.createStatement();
+     
+ String sql;
+    
+  sql = "SELECT id, first, last, age FROM Employees";
+    
+  ResultSet rs = stmt.executeQuery(sql);
+
+   
+   //STEP 5: Extract data from result set
+    
+  while(rs.next()){
+        
+ //Retrieve by column name
+     
+    int id  = rs.getInt("id");
+   
+      int age = rs.getInt("age");
+       
+  String first = rs.getString("first");
+      
+   String last = rs.getString("last");
+
+     
+    //Display values
+   
+      System.out.print("ID: " + id);
+   
+      System.out.print(", Age: " + age);
+    
+     System.out.print(", First: " + first);
+   
+      System.out.println(", Last: " + last);
+    
+  }
+      
+//STEP 6: Clean-up environment
+  
+    rs.close();
+  
+    stmt.close();
+  
+    conn.close();
+ 
+  }catch(SQLException se){
+  
+    //Handle errors for JDBC
+    
+  se.printStackTrace();
+ 
+  }catch(Exception e){
+    
+  //Handle errors for Class.forName
+ 
+     e.printStackTrace();
+ 
+  }finally{
+     
+ //finally block used to close resources
+ 
+     try{
+         
+if(stmt!=null)
+      
+      stmt.close();
+  
+    }catch(SQLException se2){
+
+      }// nothing we can do
+ 
+     try{
+      
+   if(conn!=null)
+     
+       conn.close();
+    
+  }catch(SQLException se){
+ 
+        se.printStackTrace();
+    
+  }
+//end finally try
+   }//end try
+  
+ System.out.println("There are so thing wrong!");
+
+}
+//end main
+}//end FirstExample
